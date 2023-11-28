@@ -3,26 +3,28 @@ package com.taskapp.FocusFlow.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Document
+@Document("task")
 @Data
-public class TaskItem {
+@NoArgsConstructor
+@AllArgsConstructor
+public class Task {
 	@Id
     private String id;
 
     private String name;
     private String description ;
-    private String category;
     private String date;
     private String priority;
     
-    public TaskItem(String id, String name, String description, String category, String date, String priority) {
+    public Task(String id, String name, String description, String date, String priority) {
         super();
         this.id = id;
         this.name = name;
         this.description = description;
-        this.category = category;
         this.date = date;
         this.priority = priority;
     }
@@ -51,13 +53,6 @@ public class TaskItem {
 		this.description = description;
 	}
 
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
-	}
 
 	public String getDate() {
 		return date;
