@@ -6,7 +6,7 @@ package com.taskapp.FocusFlow;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 //import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-//import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 //import com.taskapp.FocusFlow.model.Task;
 //import com.taskapp.FocusFlow.repo.TaskRepository;
@@ -21,11 +21,11 @@ public class FocusFlowApplication {
 	    
 	  }
 	
-//	@GetMapping("/")
-//	public String apiRoot() {
-//		return "FocusFlow: "
-//				+ "The application where you can organize your tasks!";
-//	}
+	@GetMapping("/")
+	public String apiRoot() {
+		return "FocusFlow: "
+				+ "The application where you can organize your tasks!";
+	}
 
 }
 
