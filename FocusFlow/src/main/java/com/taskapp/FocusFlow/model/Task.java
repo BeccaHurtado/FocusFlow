@@ -1,7 +1,12 @@
 package com.taskapp.FocusFlow.model;
 
+import java.util.Date;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,15 +22,18 @@ public class Task {
 
     private String name;
     private String description ;
-    private String date;
+    @DateTimeFormat(pattern="yyyy-MM-dd")
+    private Date dueDate;
+    // private String date;
     private String priority;
     
-    public Task(String id, String name, String description, String date, String priority) {
+    public Task(String id, String name, String description, Date dueDate, String priority) {
         super();
         this.id = id;
         this.name = name;
         this.description = description;
-        this.date = date;
+        //this.date = date;
+        this.dueDate = dueDate;
         this.priority = priority;
     }
 
@@ -53,13 +61,19 @@ public class Task {
 		this.description = description;
 	}
 
-
-	public String getDate() {
-		return date;
+	
+	//public String getDate() {
+	//		return date; 
+	//}
+	public Date getDate() {
+		return dueDate;
 	}
-
-	public void setDate(String date) {
-		this.date = date;
+	
+	// public void setDate(String date) {
+	//		this.date = date;
+	//}
+	public void setDate(Date dueDate) {
+		this.dueDate = dueDate;
 	}
 
 	public String getPriority() {

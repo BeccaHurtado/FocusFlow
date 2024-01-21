@@ -37,8 +37,8 @@ public class TaskController {
 		return taskRepo.save(task);
 	}
 	
-	@PutMapping(value = "/update/{taskId}") 
-	public Task updateTask(@PathVariable String taskId, @RequestBody Task task) {
+	@PutMapping(value = "/update") 
+	public Task updateTask(@RequestBody Task task) {
 		return taskRepo.save(task);
 	}
 	

@@ -11,5 +11,7 @@ import com.taskapp.FocusFlow.model.Task;
 public interface TaskRepository extends MongoRepository <Task, String> {
   @Query("{_id: '?0'}")
   Task getTaskById(String taskId);
-    
+
+  //Task save(String taskId);
+   
 }
