@@ -1,0 +1,84 @@
+* {
+    font-family: 'Poppins', sans-serif;
+    /* border: 1px dashed red; */
+}
+
+:root {
+    --darkGreen: #6b705c;
+    --midDark: #a3a380;
+    --midTone: #d6ce93;
+    --lightGreen: #efebce;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+#header {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+   justify-content: space-between;
+    background-color: var(--darkGreen);
+}
+
+body {
+    background-color: var(--lightGreen);
+}
+
+
+#siteTitle h1{
+    text-align: center;
+    font-size: 30px;
+    display: inline;
+}
+
+#navigation ul, #nav li{
+    margin: 0px;
+    padding: 0px;
+}
+
+#navigation li {
+    display: inline-block;
+    margin: 10px 1px 1px 1px;
+}
+
+fieldset {
+    margin-top: 20px;
+    text-align: center;
+    color: var(--darkGreen);
+    font-weight: bold;
+}
+
+input {
+    padding-right: 80px;
+    padding-left: 80px;
+}
+
+#overallTaskSpace {
+    margin: 40px 0px 0px 0px;
+    background-color: var(--midDark);
+    display: flex;
+}
+
+#overallTaskSpace h3, #overallTaskSpace h2{
+    text-align: center;
+    color: var(--lightGreen);
+}
+
+.task {
+    background-color: var(--darkGreen);
+    margin: 20px;
+}
+
+#legendName {
+    font-size: 18px;
+}
+
+button {
+    background-color: var(--darkGreen);
+    color: var(--lightGreen);
+}

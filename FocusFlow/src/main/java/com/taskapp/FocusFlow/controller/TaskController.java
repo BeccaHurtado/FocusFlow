@@ -3,6 +3,7 @@ package com.taskapp.FocusFlow.controller;
 import java.util.*;
 //import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,8 +23,14 @@ public class TaskController {
 	@Autowired
     private TaskRepository taskRepo;
 	
+	@CrossOrigin
+	//(origins = "localhost:5500")
+	
+	
 	@GetMapping(value = "/")
 	public List<Task> getAllTask(){
+		var response = taskRepo.findAll();
+		System.out.println(response);
 		return taskRepo.findAll();
 	}
 	
