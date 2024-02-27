@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
+import lombok.Data;
 @Document("task")
 @Data
 @NoArgsConstructor
@@ -23,11 +23,11 @@ public class Task {
     private String name;
     private String description ;
     @DateTimeFormat(pattern="yyyy-MM-dd")
-    private Date dueDate;
+    private String dueDate;
     // private String date;
     private String priority;
     
-    public Task(String id, String name, String description, Date dueDate, String priority) {
+    public Task(String id, String name, String description, String dueDate, String priority) {
         super();
         this.id = id;
         this.name = name;
@@ -65,14 +65,14 @@ public class Task {
 	//public String getDate() {
 	//		return date; 
 	//}
-	public Date getDate() {
+	public String getDate() {
 		return dueDate;
 	}
 	
 	// public void setDate(String date) {
 	//		this.date = date;
 	//}
-	public void setDate(Date dueDate) {
+	public void setDate(String dueDate) {
 		this.dueDate = dueDate;
 	}
 

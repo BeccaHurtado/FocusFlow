@@ -24,8 +24,7 @@ public class FocusFlowApplication {
 	
 //	@GetMapping("/")
 //	public String apiRoot() {
-//		return "FocusFlow: "
-//				+ "The application where you can organize your tasks!";
+//		return apiRoot();
 //	}
 
 }

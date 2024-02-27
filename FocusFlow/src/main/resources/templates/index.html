@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8">
         <title>FocusFlow</title>
-        <link rel="stylesheet" href="/static/index.css">
+        <link rel="stylesheet" th:href="@{css/main.css}">
+        <!-- <link rel="stylesheet" href="/static/css/index.css"> -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -29,13 +30,13 @@
                 </ul>
             </nav>
         </div>
-    </header> 
-    <!--Top header on website end-->              
+    </header>
+           
     
 
-    <!--Website body end-->
-    <body>
-        <!--Form to add a task start-->
+
+    <tbody>
+
         <form action="">
             <fieldset>
                 <legend id="legendName">Create a folder</legend>
@@ -44,9 +45,15 @@
                 <button type="submit" id="clickableButton">+</button>
             </fieldset>
         </form>
-        <!-- Form to add a task end-->
+        
+        
+        
+        <!-- <tr th:each="taskId:${getAllTask()}"> -->
+            <!-- <p th:text="${task.name}"> Task</p>
+            <p th:text="${taskId.name}"> Task</p> -->
+        <!-- </tr> -->
+        <a th:href="@{/getAllTask}" class="btn btn-primary btn-sm mb-3" >Get all Tasks</a>
 
-        <!--Task area-->
         <div id="overallTaskSpace">
             <!--Individual tasks-->
             <div id="taskOne" class="task">
@@ -70,10 +77,10 @@
                 </h3>
             </div>           
         </div>
-        <!-- Task area end-->
+   
          
         
-        <script src="/index.js"></script>
-    </body>
-    <!--Website body end-->
+       <script src="/index.js"></script>
+    </tbody>
+  
 </html>
