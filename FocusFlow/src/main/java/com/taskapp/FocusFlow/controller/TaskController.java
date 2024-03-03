@@ -11,19 +11,25 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 //import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.taskapp.FocusFlow.model.Task;
 import com.taskapp.FocusFlow.repo.TaskRepository;
 //import com.taskapp.FocusFlow.service.TaskService;
 
 @RestController
-public class TaskController {
 
+public class TaskController {
 	@Autowired
     private TaskRepository taskRepo;
 	
+	@CrossOrigin(origins = "localhost:5500")
+	
 	@GetMapping(value = "/")
 	public List<Task> getAllTask(){
+		var response = taskRepo.findAll();
+		System.out.println(response);
 		return taskRepo.findAll();
 	}
 	
