@@ -46,16 +46,29 @@ body {
     margin: 10px 1px 1px 1px;
 }
 
-fieldset {
-    margin-top: 20px;
+legend {
     text-align: center;
-    color: var(--darkGreen);
-    font-weight: bold;
 }
 
-input {
-    padding-right: 80px;
-    padding-left: 80px;
+fieldset {
+    margin-top: 20px;   
+    color: var(--darkGreen);
+    font-weight: bold;
+    display: flex;
+    display: inline-block;
+    width: 50%;
+}
+
+input, select, option {
+    width: 100%;
+    background-color: white;
+    border: none;
+}
+
+input [type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0px;
 }
 
 #overallTaskSpace {
@@ -75,10 +88,26 @@ input {
 }
 
 #legendName {
-    font-size: 18px;
+    font-size: 20px;
 }
 
 button {
     background-color: var(--darkGreen);
     color: var(--lightGreen);
+    font-size: 15px;
+    border-radius: 30px;
+    border: none;
+    text-decoration: none;
+    width: 100%;
+    margin-top: 20px;
+    padding: 8px;
+}
+
+.popUpForm {
+    display: flex;
+    align-content: center;
+}
+
+.card {
+    border: 1px solid var(--darkGreen);
 }

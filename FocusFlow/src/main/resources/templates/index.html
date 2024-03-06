@@ -4,7 +4,6 @@
         <meta charset="utf-8">
         <title>FocusFlow</title>
         <link rel="stylesheet" th:href="@{css/main.css}">
-        <!-- <link rel="stylesheet" href="/static/css/index.css"> -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -35,28 +34,65 @@
     
 
 
-    <tbody>
+    <body>
 
-        <form action="">
-            <fieldset>
-                <legend id="legendName">Create a folder</legend>
-                <label id="nameinputlabel" for="dolfernameinput"></label>
-                <input type="text" id="tasknameinput" name="tasknameinput">
-                <button type="submit" id="clickableButton">+</button>
-            </fieldset>
-        </form>
-        
-        
-        
-        <!-- <tr th:each="taskId:${getAllTask()}"> -->
-            <!-- <p th:text="${task.name}"> Task</p>
-            <p th:text="${taskId.name}"> Task</p> -->
-        <!-- </tr> -->
-        <a th:href="@{/getAllTask}" class="btn btn-primary btn-sm mb-3" >Get all Tasks</a>
+        <div id="openBtn">
+            <button class="openButton" id="openFormBtn" onclick="openForm()"><strong>Create a Task</strong></button>
+        </div>
+        <div id="formPopup" align ="center">
+            <div id="popupForm">
+                <form action="" id="popUpContent">
+                    <fieldset align="left">
+                        <legend id="legendName">Input Task Information</legend>
 
+                        <label id="nameinputlabel" for="tasknameinput">Task Name</label>
+                        <input type="text" id="tasknameinput" name="tasknameinput">
+
+                        <label id="desinputlabel" for="desinput">Description</label>
+                        <input type="text" id="desinput" name="desinput">
+
+                        <label id="duelabel" for="dueinput">Due Date</label>
+                        <input type="date" id="dateinput" name="dateinput">
+
+                        <label id="plabel" for="pinput">Priortity</label>
+                        <select name="pselect" id="pselect">
+                            <option selected>Choose...</option>
+                            <option value="low">Low</option>
+                            <option value="Med">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                        <div id="buttons">
+                            <button type="submit" id="clickableButton">Add Task</button>
+                            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+
+        <!-- <section>
+            <button class="show-form">Show Form</button>
+            <span class="overlay"></span>
+            
+            <div id="form-content">
+                <form action="" id="popUpContent">
+                    <fieldset>
+                        <legend id="legendName">Create a Task</legend>
+                        <label id="nameinputlabel" for="tasknameinput"></label>
+                        <input type="text" id="tasknameinput" name="tasknameinput">
+                        <button type="submit" id="clickableButton">+</button>
+                    </fieldset>
+                </form>
+                
+                <div>
+                    <button id="close-btn">Done</button>
+                </div>
+            </div>
+        </section> -->
+       
         <div id="overallTaskSpace">
             <!--Individual tasks-->
-            <div id="taskOne" class="task">
+            <!-- <div id="taskOne" class="task">
                 <h2>Task Title</h2>
                 <h3>
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam, debitis.
@@ -75,12 +111,10 @@
                 <h3>
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam, debitis.
                 </h3>
-            </div>           
+            </div>            -->
         </div>
-   
-         
         
-       <script src="/index.js"></script>
-    </tbody>
+       <script text="text/javascript" th:src="@{/js/action.js}"></script>
+    </body>
   
 </html>
