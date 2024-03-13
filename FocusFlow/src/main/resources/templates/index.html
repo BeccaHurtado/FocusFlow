@@ -36,13 +36,13 @@
 
     <body>
 
-        <div id="openBtn">
-            <button class="openButton" id="openFormBtn" onclick="openForm()"><strong>Create a Task</strong></button>
+        <div id="openBtn" class="openBtn" align="center">
+            <button class="openButton" id="openFormBtn" onclick="openForm()"><strong>Click here to Create a Task</strong></button>
         </div>
         <div id="formPopup" align ="center">
             <div id="popupForm">
-                <form action="" id="popUpContent">
-                    <fieldset align="left">
+                <form action="" id="popUpContent form">
+                    <fieldset align="left" class="fieldset">
                         <legend id="legendName">Input Task Information</legend>
 
                         <label id="nameinputlabel" for="tasknameinput">Task Name</label>
@@ -61,58 +61,16 @@
                             <option value="Med">Medium</option>
                             <option value="High">High</option>
                         </select>
-                        <div id="buttons">
-                            <button type="submit" id="clickableButton">Add Task</button>
+                        <div id="buttons" align="center">
+                            <button type="submit" id="clickableButton" class="addBtn">Add Task</button>
                             <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
                         </div>
                     </fieldset>
                 </form>
             </div>
         </div>
-
-        <!-- <section>
-            <button class="show-form">Show Form</button>
-            <span class="overlay"></span>
-            
-            <div id="form-content">
-                <form action="" id="popUpContent">
-                    <fieldset>
-                        <legend id="legendName">Create a Task</legend>
-                        <label id="nameinputlabel" for="tasknameinput"></label>
-                        <input type="text" id="tasknameinput" name="tasknameinput">
-                        <button type="submit" id="clickableButton">+</button>
-                    </fieldset>
-                </form>
-                
-                <div>
-                    <button id="close-btn">Done</button>
-                </div>
-            </div>
-        </section> -->
        
-        <div id="overallTaskSpace">
-            <!--Individual tasks-->
-            <!-- <div id="taskOne" class="task">
-                <h2>Task Title</h2>
-                <h3>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam, debitis.
-                </h3>
-            </div>
-
-            <div id="taskTwo">
-                <h2>Task Title</h2>
-                <h3>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam, debitis.
-                </h3>
-            </div>
-
-            <div id="taskThree">
-                <h2>Task Title</h2>
-                <h3>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam, debitis.
-                </h3>
-            </div>            -->
-        </div>
+        <div class = "container" id="overallTaskSpace"></div>
         
        <script text="text/javascript" th:src="@{/js/action.js}"></script>
     </body>

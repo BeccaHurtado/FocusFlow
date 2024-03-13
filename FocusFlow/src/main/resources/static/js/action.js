@@ -8,21 +8,20 @@
 // }
 
  // to event-handling functions.
-(function bindEvents(){
-    console.log('Binding events...');
-    document.getElementById('clickableButton').addEventListener('click', buttonClicked);
-})();
+// (function bindEvents(){
+//     console.log('Binding events...');
+//     document.getElementById('clickableButton').addEventListener('submit', buttonClicked);
+// })();
 
-function buttonClicked(){
-    let taskNameInput = document.getElementById('tasknameinput').value;
-    let taskDescInput = document.getElementById('desinput').value;
-    let taskDateInput = document.getElementById('dateinput').value;
-    let taskPriority = document.getElementById('pselect').value;
+// function buttonClicked(){
+//     let taskNameInput = document.getElementById('tasknameinput').value;
+//     let taskDescInput = document.getElementById('desinput').value;
+//     let taskDateInput = document.getElementById('dateinput').value;
+//     let taskPriority = document.getElementById('pselect').value;
 
-    addTask(taskNameInput, taskDescInput, taskDateInput, taskPriority)
+//     addTask(taskNameInput, taskDescInput, taskDateInput, taskPriority)
     
-}
-
+// }
 
 // fetch all task function
 async function getAllTask(url = "http://localhost:8080/tasks") {
@@ -40,26 +39,10 @@ async function getAllTask(url = "http://localhost:8080/tasks") {
   return response.json()
 }
 
-async function addTask(data = {name, description, dueDate, priority}) {
-  const response = await fetch("http://localhost:8080/create", {
-    method: "POST", 
-    mode: "no-cors",
-
-
-    headers: {
-      "Content-Type": "application/json",
-      "Access-Control-Allow-Origin" : "*"
-    },
-    
-  body: JSON.stringify(data)
-
-  })
-}
-
 
 
 async function renderData() {
-  var container = document.querySelector('#overallTaskSpace');
+  var container = document.querySelector('.container');
   var data = await getAllTask();
 
   //console.log(data);
@@ -71,46 +54,55 @@ async function renderData() {
     var card = document.createElement('div');
     card.classList.add('card');
 
+    var cardBody = document.createElement('div');
+    cardBody.classList.add('cardBody')
+    
     console.log(card);
     var divTaskName = document.createElement('div');
     divTaskName.innerHTML = data[i].name;
     divTaskName.classList.add('taskTitle')
-    card.appendChild(divTaskName);
+    cardBody.appendChild(divTaskName)
     
-    var divTaskDescription = document.createElement('div');
-    divTaskDescription.innerHTML = data[i].description;
-    card.appendChild(divTaskDescription);
-    
-    var divTaskDue = document.createElement('div');
+    var divTaskDue = document.createElement('span');
     divTaskDue.innerHTML = data[i].dueDate;
-    card.appendChild(divTaskDue);
+    divTaskDue.classList.add('dateDue')
+    cardBody.appendChild(divTaskDue)
     
-    var divTaskPriority = document.createElement('div');
+    var divTaskPriority = document.createElement('span');
     divTaskPriority.innerHTML = data[i].priority;
-    card.appendChild(divTaskPriority);
+    divTaskPriority.classList.add('taskPriority');
+    cardBody.appendChild(divTaskPriority)
 
+    var divTaskDescription = document.createElement('p');
+    divTaskDescription.innerHTML = data[i].description;
+    divTaskDescription.classList.add('descText')
+    cardBody.appendChild(divTaskDescription) 
+
+    // button div
+    var buttonDiv = document.createElement('div');
+    buttonDiv.classList.add('buttonDiv')
+    // done button
+    var doneBtn = document.createElement('button');
+    doneBtn.textContent = 'Done'
+    doneBtn.classList.add('doneBtn')
+    // edit button
+    var editBtn = document.createElement('button');
+    editBtn.textContent = 'Edit'
+    editBtn.classList.add('editBtn')
+    // add both buttons to div
+    buttonDiv.appendChild(doneBtn)
+    buttonDiv.appendChild(editBtn)
+    cardBody.appendChild(buttonDiv)
+    
+    // add container to card
     container.appendChild(card);
+    card.appendChild(cardBody)
+    // add button div to card
   }
 }
 
 renderData();
 
-// for each function
-// function displayTasks(array) {
-//   array.forEach(element => {
-//     const name = document.createElement("p")
-//     const node = document.createTextNode(element.name)
-//     console.log(element.name)
-//     name.appendChild(node)
-//   });
-//   }
-  
-//   (function pageLoad() {
-//     console.log("page load")
-//     displayTasks(getAllTask())
-//     console.log("test")
-//   }
-//   )();
 
 // open form
 function openForm() {
