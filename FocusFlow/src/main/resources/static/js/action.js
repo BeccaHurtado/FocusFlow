@@ -39,8 +39,6 @@ async function getAllTask(url = "http://localhost:8080/tasks") {
   return response.json()
 }
 
-
-
 async function renderData() {
   var container = document.querySelector('.container');
   var data = await getAllTask();
@@ -64,12 +62,12 @@ async function renderData() {
     cardBody.appendChild(divTaskName)
     
     var divTaskDue = document.createElement('span');
-    divTaskDue.innerHTML = data[i].dueDate;
+    divTaskDue.innerHTML = 'Due: ' + data[i].dueDate;
     divTaskDue.classList.add('dateDue')
     cardBody.appendChild(divTaskDue)
     
     var divTaskPriority = document.createElement('span');
-    divTaskPriority.innerHTML = data[i].priority;
+    divTaskPriority.innerHTML = 'Priority: ' + data[i].priority;
     divTaskPriority.classList.add('taskPriority');
     cardBody.appendChild(divTaskPriority)
 
@@ -83,8 +81,8 @@ async function renderData() {
     buttonDiv.classList.add('buttonDiv')
     // done button
     var doneBtn = document.createElement('button');
-    doneBtn.textContent = 'Done'
-    doneBtn.classList.add('doneBtn')
+    doneBtn.textContent = 'Delete'
+    doneBtn.classList.add('deleteBtn')
     // edit button
     var editBtn = document.createElement('button');
     editBtn.textContent = 'Edit'
@@ -100,8 +98,40 @@ async function renderData() {
     // add button div to card
   }
 }
-
 renderData();
+
+// add task
+async function addTask(e, url = "http://localhost:8080/create") {
+  e.preventDefault();
+  const nameTask = document.querySelector('#tasknameinput').value;
+  const descriptionTask = document.querySelector('#desinput').value;
+  const dueTask = document.querySelector('#dateinput').value;
+  const priorityTask = document.querySelector('#pselect');
+
+  const response = await fetch(url, {
+
+    method: "POST",
+    body: JSON.stringify({
+      nameTask,
+      descriptionTask,
+      dueTask,
+      priorityTask
+    }),
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin" : "*"
+    }
+  })
+  if (response.ok) {
+    console.log(await response.json())
+    // const data = await response.json()
+    window.location.reload()
+  } else {
+    alert(response.statusText);
+  }
+}
+
+document.querySelector(".form").addEventListener("submit", addTask)
 
 
 // open form

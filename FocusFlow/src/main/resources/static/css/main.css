@@ -23,11 +23,17 @@ a {
     padding-bottom: 10px;
     display: flex;
    justify-content: space-between;
-    background-color: var(--darkGreen);
+    background-color: var(--darkestGreen);
 }
 
 body {
-    background-color: var(--lightGreen);
+    background-color: #f5f5f5;
+    
+    /* background-image: url(./7175949.jpg);
+    background-repeat: no-repeat;
+    height: 100%;
+    background-position: center;
+    background-size: cover; */
 }
 
 
@@ -52,13 +58,14 @@ legend {
 }
 
 .fieldset {
-    margin-top: 20px;   
-    color: var(--darkestGreen);
+    margin-top: 10px;   
+    color: black;
     font-weight: bold;
     display: flex;
     display: inline-block;
     width: 50%;
     background-color: var(--midDark);
+    border-radius: 10px;
 }
 
 #legendName {
@@ -70,14 +77,20 @@ legend {
 
 input, select, option {
     width: 100%;
+    padding: 5px 0px 5px 0px;
     background-color: white;
     border: none;
+    border-radius: 5px;
 }
 
 input [type=text] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0px;
+}
+
+.formButtons {
+    margin-top: 10px;
 }
 
 #overallTaskSpace {
@@ -87,20 +100,21 @@ input [type=text] {
     justify-content: center;
 }
 
-.taskTitle {
+/* .taskTitle {
     text-align: center;
     color: var(--lightGreen);
-}
+} */
 
 .card{
     margin: 10px 5px 10px 5px;
     padding: 10px;
     text-align: center;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    /* box-shadow: 0 4px 8px 0 var(--darkestGreen); */
+    background-color: var(--darkGreen);
 }
 
 .card:hover {
-    box-shadow: 0 4px 8px 0 var(--darkestGreen);
+    box-shadow: 0 4px 8px 0 black;
 }
 
 .cardBody {
@@ -110,8 +124,8 @@ input [type=text] {
 
 
 .taskTitle {
-    background-color: var(--darkGreen);
-    padding: 15px 10px 15px 10px;
+    background-color: var(--darkestGreen);
+    padding: 10px 10px 10px 10px;
     color: white;
     font-size: 20px;
     font-weight: 800;
@@ -162,7 +176,7 @@ button:hover {
     border: none;
 }
 
-.doneBtn, .editBtn {
+.deleteBtn, .editBtn {
     min-height:30px; 
     min-width: 200px;
     font-size: 15px;
@@ -170,10 +184,16 @@ button:hover {
 
 .taskPriority, .dateDue {
     padding: 4px 8px;
-    border: 1px solid var(--darkGreen);
-    border-radius: 50px;
+    margin: 0px 10px 0px 10px;
+    /* margin-left: 20px;
+    margin-right: 20px; */
     font-size: 12px;
-    background-color: var(--lightGreen);
+    display: inline-block;
+    justify-content: space-between;
+}
+
+.taskPriority, .dateDue {
+    margin-top: 10px;
 }
 
 .popUpForm {
